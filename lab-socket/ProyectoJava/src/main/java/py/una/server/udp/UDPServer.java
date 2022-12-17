@@ -1,7 +1,9 @@
 package py.una.server.udp;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.net.*;
+import java.util.ArrayList;
 
 import py.una.bd.PersonaDAO;
 import py.una.entidad.Persona;
@@ -15,6 +17,7 @@ public class UDPServer {
         // Variables
         int puertoServidor = 9876;
         PersonaDAO pdao = new PersonaDAO();
+        ArrayList<Persona> personas=new ArrayList<Persona>();
         
         try {
             //1) Creamos el socket Servidor de Datagramas (UDP)
@@ -36,6 +39,8 @@ public class UDPServer {
 
 
                 System.out.println("Esperando a algun cliente... ");
+                System.out.println("Francisco Pintos - CI 5726591");
+
 
                 // 4) Receive LLAMADA BLOQUEANTE
                 serverSocket.receive(receivePacket);
@@ -54,18 +59,19 @@ public class UDPServer {
                 int port = receivePacket.getPort();
 
                 System.out.println("De : " + IPAddress + ":" + port);
-                System.out.println("Persona Recibida : " + p.getCedula() + ", " + p.getNombre() + " " + p.getApellido());
+                System.out.println("Persona Recibida : " + p.getCedula() + ", " + p.getNombre() + " " + p.getApellido()+ " " + p.getChapa()+ " " + p.getMarca()+ " " + p.getMonto());
                 
                 try {
-                	pdao.insertar(p);
-                	System.out.println("Persona insertada exitosamente en la Base de datos");
+//                	pdao.insertar(p);
+                    personas.add(p);
+                	System.out.println("Persona insertada exitosamente en la Lista");
                 }catch(Exception e) {
-                	System.out.println("Persona NO insertada en la Base de datos, razón: " + e.getLocalizedMessage());
+                	System.out.println("Persona NO insertada en la lista, razón: " + e.getLocalizedMessage());
                 }
                 
-                // Respondemos agregando a la persona una asignatura
-                p.getAsignaturas().add("Algoritmos y Estructuras de datos 2");
-                p.getAsignaturas().add("Redes de Computadoras 2");
+//                // Respondemos agregando a la persona una asignatura
+//                p.getAsignaturas().add("Algoritmos y Estructuras de datos 2");
+//                p.getAsignaturas().add("Redes de Computadoras 2");
 
                 // Enviamos la respuesta inmediatamente a ese mismo cliente
                 // Es no bloqueante

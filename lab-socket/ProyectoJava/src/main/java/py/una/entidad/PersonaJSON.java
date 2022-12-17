@@ -42,6 +42,9 @@ public class PersonaJSON {
         obj.put("cedula", p.getCedula());
         obj.put("nombre", p.getNombre());
         obj.put("apellido", p.getApellido());
+        obj.put("chapa",p.getChapa());
+        obj.put("marca", p.getMarca());
+        obj.put("monto", p.getMonto());
 
         JSONArray list = new JSONArray();
         
@@ -68,7 +71,10 @@ public class PersonaJSON {
         p.setCedula(cedula);
         p.setNombre((String)jsonObject.get("nombre"));
         p.setApellido((String)jsonObject.get("apellido"));
-        
+        p.setChapa((String) jsonObject.get("chapa"));
+        p.setMarca((String) jsonObject.get("marca"));
+        p.setMonto((Double) jsonObject.get("monto"));
+
         JSONArray msg = (JSONArray) jsonObject.get("asignaturas");
         Iterator<String> iterator = msg.iterator();
         while (iterator.hasNext()) {

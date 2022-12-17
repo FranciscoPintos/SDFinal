@@ -7,6 +7,9 @@ public class Persona {
 	Long cedula;
 	String nombre;
 	String apellido;
+	String chapa;
+	String marca;
+	Double monto;
 	
 	List<String> asignaturas;
 	
@@ -14,10 +17,13 @@ public class Persona {
 		asignaturas = new ArrayList<String>();
 	}
 
-	public Persona(Long pcedula, String pnombre, String papellido){
+	public Persona(Long pcedula, String pnombre, String papellido,String chapa, String marca,Double monto){
 		this.cedula = pcedula;
 		this.nombre = pnombre;
 		this.apellido = papellido;
+		this.chapa=chapa;
+		this.marca=marca;
+		this.monto=monto;
 		
 		asignaturas = new ArrayList<String>();
 	}
@@ -53,4 +59,29 @@ public class Persona {
 	public void setAsignaturas(List<String> asignaturas) {
 		this.asignaturas = asignaturas;
 	}
+
+	public String getChapa() {
+		return chapa;
+	}
+
+	public void setChapa(String chapa) {
+		this.chapa = chapa;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public Double getMonto() {
+		return monto;
+	}
+
+	public void setMonto(Double monto) {
+		this.monto = monto;
+	}
+
 }

@@ -15,13 +15,13 @@ public class TestPersonaDAO {
 		PersonaDAO pdao = new PersonaDAO();
 		
 		
-		pdao.insertar(new Persona(200L,"Rocio", "Cabañas") );
-		pdao.insertar(new Persona(201L,"Juan", "Lopez") );
-		pdao.insertar(new Persona(202L,"Ana", "Iturbe") );
-		pdao.insertar(new Persona(203L,"Jose", "Gomez") );
-		
-		
-		pdao.actualizar(new Persona(201L,"Antonio", "Roman") );
+//		pdao.insertar(new Persona(200L,"Rocio", "Cabañas") );
+//		pdao.insertar(new Persona(201L,"Juan", "Lopez") );
+//		pdao.insertar(new Persona(202L,"Ana", "Iturbe") );
+//		pdao.insertar(new Persona(203L,"Jose", "Gomez") );
+//
+//
+//		pdao.actualizar(new Persona(201L,"Antonio", "Roman") );
 		
 		pdao.borrar(203L);
 		
